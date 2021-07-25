@@ -4,10 +4,7 @@ pipeline {
     stage('build') {
       steps {
         echo 'Starting to build'
-        sh '''export MAVEN_HOME=/opt/maven
-export PATH=$PATH:$MAVEN_HOME/bin
-mvn --version
-mvn clean package'''
+        sh 'mvn clean install -Dlicense.skip=true'
         echo 'Build Step completed'
       }
     }
